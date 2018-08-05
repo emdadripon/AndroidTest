@@ -1,19 +1,18 @@
 pipeline{
     agent any
-      stage('Build'){
+      stage('Init'){
          steps{
-            sh 'make'
+            echo "Testing..."
          }
       }
-      stage('Test'){
+      stage('Build'){
           steps{
-              sh 'make check'
-              jnit 'report/**/*.xml'
+             echo 'Building...'
           }
       }
       stage('Deploy'){
           steps{
-              sh 'make publish'
+              echo 'Code deployed..'
           }
 
       }
