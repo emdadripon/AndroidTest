@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+      stage('Build'){
+         steps{
+            sh 'make'
+         }
+      }
+      stage('Test'){
+          steps{
+              sh 'make check'
+              jnit 'report/**/*.xml'
+          }
+      }
+      stage('Deploy'){
+          steps{
+              sh 'make publish'
+          }
+
+      }
+     
+     
+}
